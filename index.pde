@@ -27,11 +27,11 @@ void setup() {
   dokan = new Dokan();
   rules = new Rules();
   characters = new Characters();
-  CONST = new Consts();
-  minim = new Minim(this);
-  bgm_1 = minim.loadFile("bgm_1.mp3"); // called when you after start 
-  bgm_2 = minim.loadFile("bgm_2.mp3"); // called when you fail
-  bgm_3 = minim.loadFile("bgm_3.mp3"); // called when you clear
+  CONST = new Consts(); 
+  minim = new Minim(this);  
+  bgm_1 = minim.loadFile("bgm_1.mp3"); // called when you after start  
+  bgm_2 = minim.loadFile("bgm_2.mp3"); // called when you fai  
+  bgm_3 = minim.loadFile("bgm_3.mp3"); // called when you clea  
   bgm_4 = minim.loadFile("bgm_4.mp3"); // called when you before start
   rules.draw(); // settings before start 
 }
@@ -46,12 +46,12 @@ void draw() {
       video.render(opencv, capture); // render video 
       fish.rander(video.faces); // render fish on your face
       dokan.update(rules); // updating dokan and call 'Rules' class method.
-      rules.score(); //<>//
+      rules.score();
     }
     // called when you game clear
     if (rules.flag_clear == true) { rules.gameClear(); }
      // called when you game over
-    if (rules.flag_fail == true) { rules.gameOver(); }
+    if (rules.flag_fail == true) { rules.gameOver(); } //<>//
   }
 }
 
@@ -64,10 +64,10 @@ void keyPressed() {
   rules.keyPressed(); // change start flag 'false' to 'true' and more about ...
 }
 
-void stop() { 
+void stop() {
   bgm_1.close();
-  bgm_2.close();  
-  bgm_3.close();  
+  bgm_2.close();
+  bgm_3.close();
   bgm_4.close();
   minim.stop();
   super.stop();

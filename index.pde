@@ -29,46 +29,31 @@ void setup() {
   characters = new Characters();
   CONST = new Consts(); 
   minim = new Minim(this);  
-  bgm_1 = minim.loadFile("bgm_1.mp3"); // called when you after start  
-  bgm_2 = minim.loadFile("bgm_2.mp3"); // called when you fai  
-  bgm_3 = minim.loadFile("bgm_3.mp3"); // called when you clea  
-  bgm_4 = minim.loadFile("bgm_4.mp3"); // called when you before start
+  bgm_1 = minim.loadFile("bgm_1.mp3"); // used when you after start  
+  bgm_2 = minim.loadFile("bgm_2.mp3"); // used when you fai  
+  bgm_3 = minim.loadFile("bgm_3.mp3"); // used when you clea  
+  bgm_4 = minim.loadFile("bgm_4.mp3"); // used when you before start
   rules.draw(); // settings before start 
 }
 
 void draw() {
-  characters.draw(); // settings character
-  //characters.mouseClicked();
-  // done when you after start 
-  if (rules.flag_start == true) {
-    // done when you not fail or clear
-    if (rules.flag_clear == false && rules.flag_fail == false) {
-      video.render(opencv, capture); // render video 
-      fish.rander(video.faces); // render fish on your face
-      dokan.update(rules); // updating dokan and call 'Rules' class method.
-      rules.score();
-    }
-    // called when you game clear
-    if (rules.flag_clear == true) { rules.gameClear(); }
-     // called when you game over
-    if (rules.flag_fail == true) { rules.gameOver(); } //<>//
+  characters.draw(); // select character
+  if (rules.flag_start == true && rules.flag_clear == false && rules.flag_fail == false) {
+    video.render(opencv, capture); // render video 
+    fish.rander(video.faces); // render fish on your face
+    dokan.update(rules); // updating dokan and call 'Rules' class method ...
+    rules.score();
+  } else if (rules.flag_start == true && rules.flag_clear == true) { 
+    rules.gameClear(); // done when you game clear
+  } else if (rules.flag_start == true && rules.flag_fail == true) {
+    rules.gameOver(); // done when you game over
   }
 }
 
-// Built-in function
 void captureEvent(Capture capture) {
-  capture.read();
+  capture.read(); //<>//
 }
 
 void keyPressed() {
-  rules.keyPressed(); // change start flag 'false' to 'true' and more about ...
-}
-
-void stop() {
-  bgm_1.close();
-  bgm_2.close();
-  bgm_3.close();
-  bgm_4.close();
-  minim.stop();
-  super.stop();
+  rules.keyPressed(); // change rules.flag_start 'false' to 'true' and more about ...
 }

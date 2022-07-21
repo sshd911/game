@@ -7,13 +7,15 @@ import ddf.minim.*;
 Capture capture;
 OpenCV opencv;
 Video video;
-Fish fish;
+Face face;
 Dokan dokan;
 Rules rules;
 Consts CONST;
 Characters characters;
 Minim minim;
 AudioPlayer bgm_1, bgm_2, bgm_3, bgm_4;
+AudioPlayer effect_1, effect_2, effect_3, effect_4;
+AudioPlayer sound_1, sound_2, sound_3, sound_4;
 
 void settings() {
   size(760, 570);
@@ -23,25 +25,33 @@ void setup() {
   capture = new Capture(this, 760, 570);
   opencv = new OpenCV(this, 760, 570);
   video = new Video();
-  fish = new Fish();
+  face = new Face();
   dokan = new Dokan();
   rules = new Rules();
   characters = new Characters();
   CONST = new Consts(); 
   minim = new Minim(this);  
-  bgm_1 = minim.loadFile("bgm_1.mp3"); // used when you after start  
-  bgm_2 = minim.loadFile("bgm_2.mp3"); // used when you fai  
-  bgm_3 = minim.loadFile("bgm_3.mp3"); // used when you clea  
-  bgm_4 = minim.loadFile("bgm_4.mp3"); // used when you before start
+  bgm_1 = minim.loadFile("bgm_1.mp3"); // used when you before start  
+  bgm_2 = minim.loadFile("bgm_2.mp3"); // used when you fail  
+  bgm_3 = minim.loadFile("bgm_3.mp3"); // used when you clear
+  bgm_4 = minim.loadFile("bgm_4.mp3"); // used when you after start
+  effect_1 = minim.loadFile("character_1.mp3");
+  effect_2 = minim.loadFile("character_2.mp3");
+  effect_3 = minim.loadFile("character_3.mp3");
+  effect_4 = minim.loadFile("character_4.mp3");
+  sound_1 = minim.loadFile("sound_1.mp3");
+  sound_2 = minim.loadFile("sound_2.mp3");
+  sound_3 = minim.loadFile("sound_3.mp3");
+  sound_4 = minim.loadFile("sound_4.mp3");
   rules.draw(); // settings before start 
 }
 
 void draw() {
-  characters.draw(); // select character
+  if (rules.flag_start == false) characters.draw(); // select character
   if (rules.flag_start == true && rules.flag_clear == false && rules.flag_fail == false) {
     video.render(opencv, capture); // render video 
-    fish.rander(video.faces); // render fish on your face
-    dokan.update(rules); // updating dokan and call 'Rules' class method ...
+    face.rander(video.faces); // render fish on your face
+    dokan.update(rules); // updating dokan and call 'Rules' class method ... //<>//
     rules.score();
   } else if (rules.flag_start == true && rules.flag_clear == true) { 
     rules.gameClear(); // done when you game clear
@@ -51,7 +61,7 @@ void draw() {
 }
 
 void captureEvent(Capture capture) {
-  capture.read(); //<>//
+  capture.read(); 
 }
 
 void keyPressed() {

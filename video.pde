@@ -1,12 +1,12 @@
-class Video extends Consts{
- public Rectangle[] faces;
+private class Video {
+ private Rectangle[] faces;
 
- public Video() {
+ private Video() { // called by index.draw
   opencv.loadCascade(OpenCV.CASCADE_FRONTALFACE);
   capture.start();
  }
  
- public void render(OpenCV opencv, Capture capture) {
+ private void render(OpenCV opencv, Capture capture) { // called by index.draw
   opencv.loadImage(capture);
   image(capture, 0, 0 );
   faces = opencv.detect();

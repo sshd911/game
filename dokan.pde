@@ -1,4 +1,4 @@
-class Dokan extends Consts{
+class Dokan extends Consts {
   public float x, y, x_sum;
   public int counter; // dokan counter
   
@@ -13,7 +13,7 @@ class Dokan extends Consts{
     if (DOKAN_SIZE_X+x < 0) { init(); }
   }
   
-  public void init() { // called when you restart or render new dokan image 
+  public void init() { // called when you restart or render new dokan image  
     x = width;
     y = int(random(100))%2 == 0 ? height/2 : 0;
     counter++;

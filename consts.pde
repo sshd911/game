@@ -33,7 +33,7 @@ class Consts {
    public final int START_TEXT_Y = height/2; // start position size y
    public final int FAIL_TEXT_X = width/3;  // fail position size x
    public final int FAIL_TEXT_Y = height/2; // fail position size y  
-   public final int CLEAR_TEXT_X = width/5; // clear position size x
+   public final int CLEAR_TEXT_X = width/3; // clear position size x
    public final int CLEAR_TEXT_Y = height/2; // clear position size y
    public final int SCORE_TEXT_X = width-this.SCORE_TEXT_SIZE*2; // clear position size x
    public final int SCORE_TEXT_Y = height/10; // clear position size y
@@ -43,13 +43,13 @@ class Consts {
    public final int SCORE_TEXT_SIZE = 64; // score text size
 // constants variable of Fish Class 
    public PImage IMG; // charactor image
-   public final float FISH_SIZE_X = 100; // fish size x
-   public final float FISH_SIZE_Y = 100; // fish size y
+   public final float IMG_SIZE_X = 100; // img size x
+   public final float IMG_SIZE_Y = 100; // img size y
 // constants variable of Dokan class
    public final PImage IMG_2 = loadImage("dokan_1.png"); // dokan image 
    public final PImage IMG_3 = loadImage("dokan_2.png"); // dokna image flip upside down
    public final int DOKAN_SPEED = 20; // dokan speed 
-   public final int MAX = 10; // dokan counter == clear line 
+   public final int MAX = 20; // dokan counter == clear line 
    public final float DOKAN_SIZE_X = width/6; // dokan size x
    public final float DOKAN_SIZE_Y = height/2; // dokan size y
   

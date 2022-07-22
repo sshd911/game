@@ -15,7 +15,7 @@ public class Dokan extends Consts {
   
   public void init() { // called by this.initJudge and rules.keyPressed
     x = width;
-    y = int(random(100))%2 == 0 ? height/2 : 0;
+    y = int(random(100))%2 == 0 ? height/DOKAN_SIZE_Y_RATIO : 0;
     counter++;
   }
   
@@ -24,7 +24,7 @@ public class Dokan extends Consts {
   }
   
   private void renderUpOrDown() { // called by this.update
-    if (y == height/2) { image(DOKAN_IMG_1, x, y, DOKAN_SIZE_X, DOKAN_SIZE_Y); }
+    if (y == height/DOKAN_SIZE_Y_RATIO) { image(DOKAN_IMG_1, x, y, DOKAN_SIZE_X, DOKAN_SIZE_Y); }
     if (y == 0) { image(DOKAN_IMG_2, x, y, DOKAN_SIZE_X, DOKAN_SIZE_Y); }
   }
 }

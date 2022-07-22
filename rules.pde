@@ -20,6 +20,9 @@ public class Rules extends Consts{
     // start
     if (characters.flag_image == true && flag_start == false){
       musicPause(1);
+      soundPlay(3);
+      delay(1000);
+      soundPause(3);
       musicPlay(4);
       flag_start = true;
     }
@@ -37,18 +40,16 @@ public class Rules extends Consts{
   }
    
   public void judge(int counter) { // called by dokan.update
-    if (
-      (face.x != 0 && face .y != 0) && 
-      (face.x-IMG_SIZE_X >= dokan.x-DOKAN_SIZE_X) && 
-      (face.x+IMG_SIZE_X <= dokan.x+DOKAN_SIZE_X) && 
-      ((dokan.y == height/2 && face.y-IMG_SIZE_Y >= DOKAN_SIZE_Y/2) ||
-      (dokan.y == 0 && face.y-IMG_SIZE_Y <= DOKAN_SIZE_Y/2))
-    ) { 
-    flag_fail = true;
-    musicPause(4);
-    soundPlay(1);
+    if (collisionDetection() == true) { 
+      flag_fail = true;
+      musicPause(4);
+      soundPlay(1);
     }  
-    if (counter == MAX) { flag_clear = true; }
+    if (counter == MAX) { 
+      flag_clear = true; 
+      musicPause(4);
+      soundPlay(2);
+    }
     gameOver();
     gameClear();
   }
@@ -64,10 +65,12 @@ public class Rules extends Consts{
   }
   
   private void gameClear() { // called by index.draw and this.judge
-    if (flag_clear == true) { 
-      musicPause(4);
-      musicPlay(3);
+    if (flag_delay == false && flag_clear == true) { 
       drawText(BG_IMG_3, START_TEXT_SIZE, FONT, MSG_CLEAR, CLEAR_TEXT_X, CLEAR_TEXT_Y, 255, 255, 0);
+      soundPause(2);
+      delay(6000);
+      musicPlay(3);
+      flag_delay = true;
     }
   }
   
@@ -160,5 +163,27 @@ public class Rules extends Consts{
     flag_fail = false;
     flag_clear = false;
     flag_delay = false;
+  }
+  
+  //private void audioManager(int number_1, int number_2) {
+    
+  //}
+  
+  private boolean collisionDetection() {
+     if (
+        face.x != 0 && face.y != 0 && 
+        face.x-IMG_SIZE_X >= dokan.x-DOKAN_SIZE_X && 
+        face.x+IMG_SIZE_X <= dokan.x+DOKAN_SIZE_X && 
+        (
+        dokan.y == height/DOKAN_SIZE_Y_RATIO && 
+          face.y-IMG_SIZE_Y >= DOKAN_SIZE_Y/DOKAN_SIZE_Y_RATIO-30 ||
+        dokan.y == 0 && 
+          face.y-IMG_SIZE_Y <= DOKAN_SIZE_Y/DOKAN_SIZE_Y_RATIO+30
+        ) 
+      ){
+        return true;
+      } else {
+        return false;
+      }
   }
 }

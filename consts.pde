@@ -60,7 +60,7 @@ protected class Consts {
    protected final PImage DOKAN_IMG_1 = loadImage("dokan_1.png"); // dokan image 
    protected final PImage DOKAN_IMG_2 = loadImage("dokan_2.png"); // dokna image flip upside down
    protected final int DOKAN_SPEED = 10; // dokan speed 
-   protected final int MAX = 10; // end line of clear 
+   protected final int MAX = 20; // end line of clear 
    protected final float DOKAN_SIZE_X = width/6; // dokan size x
    protected final float DOKAN_SIZE_Y = height/this.DOKAN_SIZE_Y_RATIO ; // dokan size y
    protected final float DOKAN_SIZE_Y_RATIO = 1.8; // dokan size y ratio

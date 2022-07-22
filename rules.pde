@@ -165,10 +165,6 @@ public class Rules extends Consts{
     flag_delay = false;
   }
   
-  //private void audioManager(int number_1, int number_2) {
-    
-  //}
-  
   private boolean collisionDetection() {
      if (
         face.x != 0 && face.y != 0 && 

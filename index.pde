@@ -1,8 +1,8 @@
-import gab.opencv.*;
-import processing.video.*;
-import java.awt.*;
-import processing.sound.*;
-import ddf.minim.*;
+import gab.opencv.OpenCV;
+import processing.video.Capture;
+import java.awt.Rectangle;
+import ddf.minim.AudioPlayer;
+import ddf.minim.Minim;
 
 Capture capture;
 OpenCV opencv;
@@ -51,7 +51,7 @@ void draw() {
   if (rules.flag_start == true && rules.flag_clear == false && rules.flag_fail == false) {
     video.render(opencv, capture); // render video 
     face.rander(video.faces); // render fish on your face
-    dokan.update(rules); // updating dokan and call 'Rules' class method ... //<>//
+    dokan.update(rules); // updating dokan and call 'Rules' class method ... //<>// //<>//
     rules.score();
   } else if (rules.flag_start == true && rules.flag_clear == true) { 
     rules.gameClear(); // done when you game clear

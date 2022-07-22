@@ -29,7 +29,7 @@ public class Characters extends Consts {
        setImage(img); 
      }
    }
-    //<>// //<>//
+ //<>//
   private void setImage(PImage img) {
     CONST.IMG = img;
     flag_image = true;

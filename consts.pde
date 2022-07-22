@@ -1,15 +1,15 @@
 protected class Consts {
 // character settings
    protected final PImage C_IMG_1 = loadImage("character_1.png");
-   protected final PImage C_IMG_2 = loadImage("character_2.png");
-   protected final PImage C_IMG_3 = loadImage("character_3.png");
-   protected final PImage C_IMG_4 = loadImage("character_4.png");
    protected final float C_IMG_1_SIZE_X = 100;
    protected final float C_IMG_1_SIZE_Y = 100;
+   protected final PImage C_IMG_2 = loadImage("character_2.png");
    protected final float C_IMG_2_SIZE_X = 100;
    protected final float C_IMG_2_SIZE_Y = 100;  
+   protected final PImage C_IMG_3 = loadImage("character_3.png");
    protected final float C_IMG_3_SIZE_X = 100;
    protected final float C_IMG_3_SIZE_Y = 100;  
+   protected final PImage C_IMG_4 = loadImage("character_4.png");
    protected final float C_IMG_4_SIZE_X = 150;
    protected final float C_IMG_4_SIZE_Y = 150;
    protected final float C_IMG_1_X = 100;
@@ -25,9 +25,9 @@ protected class Consts {
    protected final PImage BG_IMG_1 = loadImage("bg_1.jpg"); // start background image
    protected final PImage BG_IMG_2 = loadImage("bg_2.jpeg"); // fail background image
    protected final PImage BG_IMG_3 = loadImage("bg_3.jpg"); // clear background image
-   protected final String MSG_START = "Select the charactor, click to start!!"; // start text
-   protected final String MSG_FAIL = "You Lose, Key down to continue"; // fail text
-   protected final String MSG_CLEAR = "Congratulation"; // clear text
+   protected final String MSG_START = "Select Player, Click To Start !!"; // start text
+   protected final String MSG_FAIL = "You Lose, Key Down To Continue"; // fail text
+   protected final String MSG_CLEAR = "You Win, Key Down To Restart !!"; // clear text
    protected final String MSG_SCORE = "/"+this.MAX; // score text
    protected final int START_TEXT_X = width/5; // start position size x
    protected final int START_TEXT_Y = height/2; // start position size y
@@ -49,9 +49,10 @@ protected class Consts {
    protected final PImage DOKAN_IMG_1 = loadImage("dokan_1.png"); // dokan image 
    protected final PImage DOKAN_IMG_2 = loadImage("dokan_2.png"); // dokna image flip upside down
    protected final int DOKAN_SPEED = 20; // dokan speed 
-   protected final int MAX = 3; // dokan counter == clear line 
+   protected final int MAX = 10; // dokan counter == clear line 
    protected final float DOKAN_SIZE_X = width/6; // dokan size x
-   protected final float DOKAN_SIZE_Y = height/2; // dokan size y
+   protected final float DOKAN_SIZE_Y = height/this.DOKAN_SIZE_Y_RATIO ; // dokan size y
+   protected final float DOKAN_SIZE_Y_RATIO = 1.8; // dokan size y ratio
   
    Consts() { // resize some images
     BG_IMG_1.resize(760, 570);

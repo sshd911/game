@@ -1,5 +1,7 @@
 ### 取扱説明書 ###
 
+<img width="757" alt="descript" src="https://user-images.githubusercontent.com/93387572/182334964-52e18934-98a5-4406-955d-72bd5ff655bc.png">
+
 ### ゲーム名 ###
 ・蝶・劣化版マリオブラザース
 

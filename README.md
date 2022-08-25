@@ -30,7 +30,7 @@
 
 ### 環境 ###
 - macOS M1 Monterey 12.4
-- Processing 3.5.3
+- Processing 3.5.3 （https://github.com/processing/processing/releases）
 
 ### 画像及び音楽の引用元 ###
 - https://www.nintendo.co.jp
